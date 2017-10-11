@@ -34,4 +34,14 @@ public class Car {
             this.manufacturer = "not-produced-in-asia";
         }
     }
+
+    public static void main(String[] args) {
+        Car vios = new Car();
+
+        vios.setModel("HDL45XK 1.5L");
+        System.out.println(vios.getModel());
+
+        vios.setManufacturer("BMW");
+        System.out.println(vios.getManufacturer());
+    }
 }

@@ -5,13 +5,25 @@ package core.com.udemy.timbuchalka.classes;
  */
 public class BankAccount {
     private String accountNumber;
-    private Integer balance;
+    private Double balance;
     private String customerName;
     private String email;
     private String phone;
 
-    public String depositFund(Integer deposit) {
-        if (deposit != null) {
+    public BankAccount() {
+        this("", 0.0, "", "", "");
+    }
+
+    public BankAccount(String accountNumber, Double balance, String customerName, String email, String phone) {
+        this.accountNumber = accountNumber;
+        this.balance = balance;
+        this.customerName = customerName;
+        this.email = email;
+        this.phone = phone;
+    }
+
+    public String depositFund(Double deposit) {
+        if (deposit != null && deposit > 0) {
             this.balance += deposit;
             return "success";
         } else {
@@ -19,8 +31,8 @@ public class BankAccount {
         }
     }
 
-    public String withdrawFund(Integer withdraw) {
-        if (withdraw != null && withdraw <= balance) {
+    public String withdrawFund(Double withdraw) {
+        if (withdraw != null && withdraw <= balance && withdraw > 0) {
             this.balance -= withdraw;
             return "success";
         } else {
@@ -30,9 +42,44 @@ public class BankAccount {
 
     public static void main(String[] args) {
         BankAccount bankAccount = new BankAccount();
-        bankAccount.setBalance(150000);
+//        bankAccount.setBalance((double) 150000);
+
+
+//        BankAccount bankAccount = new BankAccount("045 Vietcombank", 100000.0, "Nguyen Van Khoi"
+//                , "nvankhoiws@gmail.com", "0974689594");
+
         String depositResult = bankAccount.depositFund(null);
-        System.out.println("depositResult\t" + depositResult);
+        System.out.println("depositResult time 1\t" + depositResult);
+
+        depositResult = bankAccount.depositFund(Double.valueOf(-150000));
+        System.out.println("depositResult time 2\t" + depositResult
+                + " | the current balance is " + String.valueOf(bankAccount.getBalance()));
+
+        depositResult = bankAccount.depositFund(Double.valueOf(150));
+        System.out.println("depositResult time 3\t" + depositResult
+                + " | the current balance is " + String.valueOf(bankAccount.getBalance()));
+
+
+        String withdrawResult = bankAccount.withdrawFund(Double.valueOf(-300000));
+        System.out.println("withdrawResult time 1\t" + withdrawResult
+                + " | the current balance is " + String.valueOf(bankAccount.getBalance()));
+
+        withdrawResult = bankAccount.withdrawFund(null);
+        System.out.println("withdrawResult time 2\t" + withdrawResult
+                + " | the current balance is " + String.valueOf(bankAccount.getBalance()));
+
+
+        withdrawResult = bankAccount.withdrawFund(Double.valueOf(150));
+        System.out.println("withdrawResult time 3\t" + withdrawResult
+                + " | the current balance is " + String.valueOf(bankAccount.getBalance()));
+
+        withdrawResult = bankAccount.withdrawFund(Double.valueOf(150000));
+        System.out.println("withdrawResult time 3\t" + withdrawResult
+                + " | the current balance is " + String.valueOf(bankAccount.getBalance()));
+
+        withdrawResult = bankAccount.withdrawFund(Double.valueOf(1));
+        System.out.println("withdrawResult time 3\t" + withdrawResult
+                + " | the current balance is " + String.valueOf(bankAccount.getBalance()));
     }
 
     public String getAccountNumber() {
@@ -43,11 +90,11 @@ public class BankAccount {
         this.accountNumber = accountNumber;
     }
 
-    public Integer getBalance() {
+    public Double getBalance() {
         return balance;
     }
 
-    public void setBalance(Integer balance) {
+    public void setBalance(Double balance) {
         this.balance = balance;
     }
 
