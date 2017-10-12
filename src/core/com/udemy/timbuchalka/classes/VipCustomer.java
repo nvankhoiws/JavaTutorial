@@ -3,7 +3,8 @@ package core.com.udemy.timbuchalka.classes;
 /**
  * Created by Khoi.NguyenVan@nttdata.com on 10/11/20174:58 PM.
  */
-public class VipCustomer {
+public class
+VipCustomer {
     private String name;
     private Double creditLimit;
     private String email;
