@@ -23,4 +23,11 @@ public class Vehicle {
         }
     }
 
+    public int getSteering() {
+        return steering;
+    }
+
+    public int getSpeed() {
+        return speed;
+    }
 }

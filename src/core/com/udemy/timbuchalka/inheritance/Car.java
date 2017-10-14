@@ -33,4 +33,17 @@ public class Car extends Vehicle{
             System.out.println("This car is changing gear by -" + gear);
         }
     }
+
+    public int getGear() {
+        return gear;
+    }
+
+    public static void main(String[] args) {
+        Car nissan = new Car(1,0,0);
+        nissan.increaseGear(3);
+        nissan.increaseSpeed(30);
+        System.out.println("Gear of this car " + nissan.getGear());
+        System.out.println("Speed of this car " + nissan.getSpeed());
+    }
+
 }
