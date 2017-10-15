@@ -1,4 +1,4 @@
-package core.com.udemy.timbuchalka.composition;
+package core.com.udemy.timbuchalka.composition.thePC;
 
 public class Dimension {
     private int width;
@@ -29,5 +29,9 @@ public class Dimension {
 
     public int getDepth() {
         return depth;
+    }
+
+    public void setDepth(int depth) {
+        this.depth = depth;
     }
 }

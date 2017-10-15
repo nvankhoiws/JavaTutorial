@@ -1,4 +1,4 @@
-package core.com.udemy.timbuchalka.composition;
+package core.com.udemy.timbuchalka.composition.thePC;
 
 public class MotherBoard {
     private String model;
