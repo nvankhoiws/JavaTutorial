@@ -36,7 +36,7 @@ public class Printer {
             System.out.println("Printer is filled up to 100%");
         } else {
             this.tonerLevel = 0;
-            System.out.println("Printer is emptied out");
+            System.out.println("Printer is not filled up yet");
         }
     }
 
@@ -49,11 +49,17 @@ public class Printer {
         return tonerLevel;
     }
 
+    public void checkDuplexPrinting(){
+        if (this.duplexPriting) {
+
+        }
+    }
     public int getAccumulativePagePrinted() {
         return accumulativePagePrinted;
     }
 
     public int getCurrentPagePrinted() {
+        this.accumulativePagePrinted = this.accumulativePagePrinted + this.currentPagePrinted;
         return currentPagePrinted;
     }
 
