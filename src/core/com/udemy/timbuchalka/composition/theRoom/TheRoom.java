@@ -18,6 +18,7 @@ public class TheRoom {
     }
 
     public void lampOnAutomatically () {
+        getPowerSwitch().turnOn();
         if (getHourInDay() >= 18) {
             getLamp().turnOn();
         } else {

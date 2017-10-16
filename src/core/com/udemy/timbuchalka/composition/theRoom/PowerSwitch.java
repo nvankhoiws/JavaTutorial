@@ -4,12 +4,14 @@ public class PowerSwitch {
     private String color;
     private int powerPlace;
     private String material;
+    private int switchNumber;
     private boolean on;
 
-    public PowerSwitch(String color, int powerPlace, String material, boolean on) {
+    public PowerSwitch(String color, int powerPlace, String material, int switchNumber, boolean on) {
         this.color = color;
         this.powerPlace = powerPlace;
         this.material = material;
+        this.switchNumber = switchNumber;
         this.on = on;
     }
 
@@ -31,5 +33,9 @@ public class PowerSwitch {
 
     public boolean isOn() {
         return on;
+    }
+
+    public int getSwitchNumber() {
+        return switchNumber;
     }
 }

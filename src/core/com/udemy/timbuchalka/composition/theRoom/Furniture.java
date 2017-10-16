@@ -52,6 +52,7 @@ public class Furniture {
     }
 
     public String getMaterial() {
+        System.out.println("This Furniture is made from " + this.material);
         return material;
     }
 
