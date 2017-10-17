@@ -3,3 +3,6 @@
 
 # ignore .iml file which genetated by IntelliJ
 *.iml
+
+# ignore files inside the out folder
+out/
