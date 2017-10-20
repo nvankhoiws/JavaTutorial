@@ -12,15 +12,15 @@ public class HealthyBurger extends Hamburger {
     }
 
     protected void setBroccoli(boolean broccoli) {
-        if (isCheese()){
+        if (isBroccoli()){
             this.broccoli = broccoli;
             if (!broccoli){
-                this.additionalPrice = (super.getAdditionalPrice() + getAdditionalPrice() - getPriceOfBroccoli()) ;
+                this.additionalPrice = super.getAdditionalPrice() + getAdditionalPrice() - getPriceOfBroccoli() ;
             }
         } else {
             this.broccoli = broccoli;
             if (broccoli){
-                this.additionalPrice += getPriceOfCheese();
+                this.additionalPrice = super.getAdditionalPrice() + getAdditionalPrice() + getPriceOfBroccoli();
             }
         }
     }
@@ -29,12 +29,12 @@ public class HealthyBurger extends Hamburger {
         if (isBinna()){
             this.binna = binna;
             if (!binna){
-                this.additionalPrice -= getPriceOfCheese();
+                this.additionalPrice = super.getAdditionalPrice() + getAdditionalPrice() - getPriceOfBinna() ;
             }
         } else {
             this.binna = binna;
             if (binna){
-                this.additionalPrice += getPriceOfCheese();
+                this.additionalPrice = super.getAdditionalPrice() + getAdditionalPrice() + getPriceOfBinna() ;
             }
         }
     }
