@@ -1,5 +1,6 @@
 package core.com.udemy.timbuchalka.oopTest;
 
+import core.com.udemy.timbuchalka.oopTest.burgerFamily.DeluxeBurger;
 import core.com.udemy.timbuchalka.oopTest.burgerFamily.Hamburger;
 import core.com.udemy.timbuchalka.oopTest.burgerFamily.HealthyBurger;
 
@@ -32,6 +33,18 @@ public class BillsBurgers {
         System.out.println(healthyBurger.getAdditionalPrice());
         System.out.println(healthyBurger.getBasePrice());
         System.out.println(healthyBurger.getGrantPrice());
+
+        DeluxeBurger deluxeBurger = new DeluxeBurger();
+        System.out.println(deluxeBurger.getBasePrice());
+        System.out.println(deluxeBurger.getAdditionalPrice());
+        System.out.println(deluxeBurger.getGrantPrice());
+        System.out.println("\n");
+        deluxeBurger.addThese(true, true, true, true);
+        System.out.println(deluxeBurger.getBasePrice());
+        System.out.println(deluxeBurger.getAdditionalPrice());
+        System.out.println(deluxeBurger.getGrantPrice());
+        deluxeBurger.checkHamburger();
+
 
     }
 }
