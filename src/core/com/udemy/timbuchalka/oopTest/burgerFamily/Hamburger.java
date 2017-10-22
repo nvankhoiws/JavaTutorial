@@ -121,6 +121,10 @@ public class Hamburger {
         }
     }
 
+    protected void setAdditionalPrice(double additionalPrice) {
+        this.additionalPrice = additionalPrice;
+    }
+
     public String getBreadRollType() {
         return breadRollType;
     }
