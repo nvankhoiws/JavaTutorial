@@ -20,42 +20,121 @@ public class Additionals {
 
     private double additionalPrice;
 
-
     public Additionals() {
 
     }
 
 // Setter
     public void addLettuce(boolean lettuce) {
-        this.lettuce = lettuce;
+        if (isLettuce()){
+            this.lettuce = lettuce;
+            if (!lettuce){
+                this.additionalPrice -= getPriceOfLettuce();
+            }
+        } else {
+            this.lettuce = lettuce;
+            if (lettuce){
+                this.additionalPrice += getPriceOfLettuce();
+            }
+        }
     }
 
     public void addTomato(boolean tomato) {
-        this.tomato = tomato;
+        if (isTomato()){
+            this.tomato = tomato;
+            if (!tomato){
+                this.additionalPrice -= getPriceOfTomato();
+            }
+        } else {
+            this.tomato = tomato;
+            if (tomato){
+                this.additionalPrice += getPriceOfTomato();
+            }
+        }
     }
 
     public void addCarrot(boolean carrot) {
-        this.carrot = carrot;
+        if (isCarrot()){
+            this.carrot = carrot;
+            if (!carrot){
+                this.additionalPrice -= getPriceOfCarrot();
+            }
+        } else {
+            this.carrot= carrot;
+            if (carrot){
+                this.additionalPrice += getPriceOfCarrot();
+            }
+        }
     }
 
     public void addCheese(boolean cheese) {
-        this.cheese = cheese;
+        if (isCheese()){
+            this.cheese = cheese;
+            if (!cheese){
+                this.additionalPrice -= getPriceOfCheese();
+            }
+        } else {
+            this.cheese= cheese;
+            if (cheese){
+                this.additionalPrice += getPriceOfCheese();
+            }
+        }
     }
 
     public void addBroccoli(boolean broccoli) {
-        this.broccoli = broccoli;
+        if (isCarrot()){
+            this.broccoli = broccoli;
+            if (!broccoli){
+                this.additionalPrice -= getPriceOfBroccoli();
+            }
+        } else {
+            this.broccoli= broccoli;
+            if (broccoli){
+                this.additionalPrice += getPriceOfBroccoli();
+            }
+        }
     }
 
     public void addBinna(boolean binna) {
-        this.binna = binna;
+        if (isCarrot()){
+            this.binna = binna;
+            if (!binna){
+                this.additionalPrice -= getPriceOfBinna();
+            }
+        } else {
+            this.binna= binna;
+            if (binna){
+                this.additionalPrice += getPriceOfBinna();
+            }
+        }
     }
 
     public void addChips(boolean chips) {
-        this.chips = chips;
+        if (isCarrot()){
+            this.chips = chips;
+            if (!chips){
+                this.additionalPrice -= getPriceOfChips();
+            }
+        } else {
+            this.chips= chips;
+            if (chips){
+                this.additionalPrice += getPriceOfChips();
+            }
+        }
     }
 
     public void addDrinks(boolean drinks) {
-        this.drinks = drinks;
+        if (isCarrot()){
+            this.drinks = drinks;
+            if (!drinks){
+                this.additionalPrice -= getPriceOfDrinks();
+            }
+        } else {
+            this.drinks= drinks;
+            if (drinks){
+                this.additionalPrice += getPriceOfDrinks();
+            }
+        }
     }
 //Getter
     public boolean isLettuce() {
