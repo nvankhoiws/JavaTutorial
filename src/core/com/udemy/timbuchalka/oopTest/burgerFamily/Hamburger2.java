@@ -4,8 +4,9 @@ public class Hamburger2 {
     private BaseBurger baseBurger;
     private Additionals additionals;
 
-    public Hamburger2() {
-        this.baseBurger = new BaseBurger(null);
+    public Hamburger2(String breadRollType) {
+        this.baseBurger = new BaseBurger(breadRollType);
+        this.additionals = new Additionals();
     }
 
     public void addThese(boolean lettuce, boolean tomato, boolean carrot, boolean cheese){
@@ -23,6 +24,14 @@ public class Hamburger2 {
         return baseBurger.getBasePrice() + additionals.getAdditionalPrice();
     }
 
+    public double getBasPrice(){
+        return baseBurger.getBasePrice();
+    }
+
+    public double getAdditionalPrice(){
+        return additionals.getAdditionalPrice();
+    }
+
     public void checkThisHamburger(){
         String lettuce = (additionals.isLettuce()) ? "lettuce, " : "";
         String tomato = (additionals.isTomato()) ? "tomato, " : "";
@@ -32,25 +41,6 @@ public class Hamburger2 {
         System.out.println("This hamburger has " + baseBurger.getBreadRollType() + ", "+ meat + lettuce + tomato + carrot + cheese);
         System.out.println("This hamburger has base price is " + baseBurger.getBasePrice());
         System.out.println("This hamburger has additional price is " + additionals.getAdditionalPrice());
-        System.out.println("This grant price of hamburger is " + getGrantPrice());
-    }
-
-    public static void main(String[] args) {
-        Hamburger2 hamburger2 = new Hamburger2();
-        System.out.println("\n");
-        System.out.println(hamburger2.getGrantPrice());
-        System.out.println(hamburger2.());
-        System.out.println("\n");
-        System.out.println();
-        System.out.println("\n");
-        System.out.println();
-        System.out.println("\n");
-        System.out.println();
-        System.out.println("\n");
-        System.out.println();
-        System.out.println("\n");
-        System.out.println();
-        System.out.println("\n");
-        System.out.println();
+        System.out.println("The grant price of hamburger is " + getGrantPrice());
     }
 }

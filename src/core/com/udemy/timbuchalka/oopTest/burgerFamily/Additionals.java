@@ -1,24 +1,24 @@
 package core.com.udemy.timbuchalka.oopTest.burgerFamily;
 
 public class Additionals {
-    private boolean lettuce;
+    private boolean lettuce = false;
     private double priceOfLettuce = 1;
-    private boolean tomato;
+    private boolean tomato = false;
     private double priceOfTomato = 2;
-    private boolean carrot;
+    private boolean carrot= false;
     private double priceOfCarrot = 3;
-    private boolean cheese;
+    private boolean cheese= false;
     private double priceOfCheese = 4;
-    private boolean broccoli;
+    private boolean broccoli= false;
     private double priceOfBroccoli = 5.0;
-    private boolean binna;
+    private boolean binna= false;
     private double priceOfBinna = 6.0;
-    private boolean chips;
+    private boolean chips= false;
     private double priceOfChips = 7.0;
-    private boolean drinks;
+    private boolean drinks= false;
     private double priceOfDrinks = 8.0;
 
-    private double additionalPrice;
+    private double additionalPrice = 0.0;
 
     public Additionals() {
 
