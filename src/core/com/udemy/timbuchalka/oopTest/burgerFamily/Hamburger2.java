@@ -43,4 +43,12 @@ public class Hamburger2 {
         System.out.println("This hamburger has additional price is " + additionals.getAdditionalPrice());
         System.out.println("The grant price of hamburger is " + getGrantPrice());
     }
+
+    public BaseBurger getBaseBurger() {
+        return baseBurger;
+    }
+
+    public Additionals getAdditionals() {
+        return additionals;
+    }
 }
