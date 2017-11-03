@@ -1,4 +1,4 @@
-package core.com.udemy.timbuchalka.oopTest.burgerFamily;
+package core.com.udemy.timbuchalka.oopTest.burgerComposition.classes;
 
 public class Additionals {
     private boolean lettuce = false;
@@ -22,6 +22,27 @@ public class Additionals {
 
     public Additionals() {
 
+    }
+
+    protected Additionals(boolean lettuce, boolean tomato, boolean carrot, boolean cheese) {
+        addLettuce(lettuce);
+        addTomato(tomato);
+        addCarrot(carrot);
+        addCheese(cheese);
+    }
+
+    protected Additionals(boolean lettuce, boolean tomato, boolean carrot, boolean cheese, boolean broccoli, boolean binna) {
+        addLettuce(lettuce);
+        addTomato(tomato);
+        addCarrot(carrot);
+        addCheese(cheese);
+        addBroccoli(broccoli);
+        addBinna(binna);
+    }
+
+    protected Additionals(boolean chips, boolean drinks) {
+        addChips(chips);
+        addDrinks(drinks);
     }
 
 // Setter

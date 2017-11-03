@@ -1,4 +1,4 @@
-package core.com.udemy.timbuchalka.oopTest.burgerFamily;
+package core.com.udemy.timbuchalka.oopTest.burgerFamily.classes;
 
 public class Hamburger {
     private String breadRollType;

@@ -1,8 +1,8 @@
-package core.com.udemy.timbuchalka.oopTest;
+package core.com.udemy.timbuchalka.oopTest.burgerFamily;
 
-import core.com.udemy.timbuchalka.oopTest.burgerFamily.DeluxeBurger;
-import core.com.udemy.timbuchalka.oopTest.burgerFamily.Hamburger;
-import core.com.udemy.timbuchalka.oopTest.burgerFamily.HealthyBurger;
+import core.com.udemy.timbuchalka.oopTest.burgerFamily.classes.DeluxeBurger;
+import core.com.udemy.timbuchalka.oopTest.burgerFamily.classes.Hamburger;
+import core.com.udemy.timbuchalka.oopTest.burgerFamily.classes.HealthyBurger;
 
 public class BillsBurgers {
     public static void main(String[] args) {

@@ -1,19 +1,19 @@
-package core.com.udemy.timbuchalka.oopTest.burgerFamily;
+package core.com.udemy.timbuchalka.oopTest.burgerComposition.classes;
 
-public class Hamburger2 {
+/**
+ * Created by Khoi.NguyenVan@nttdata.com on 11/3/20174:02 PM.
+ */
+public class DeluxeBurger {
     private BaseBurger baseBurger;
     private Additionals additionals;
 
-    public Hamburger2(String breadRollType) {
-        this.baseBurger = new BaseBurger(breadRollType);
+    public DeluxeBurger() {
+        this.baseBurger = new BaseBurger("Deluxe Bread Roll");
         this.additionals = new Additionals();
     }
 
-    public void addThese(boolean lettuce, boolean tomato, boolean carrot, boolean cheese){
-            additionals.addLettuce(lettuce);
-            additionals.addTomato(tomato);
-            additionals.addCarrot(carrot);
-            additionals.addCheese(cheese);
+    public void addThese(boolean drinks, boolean chips){
+        additionals = new Additionals(true, true);
     }
 
     public void removeMeat(){
@@ -33,15 +33,17 @@ public class Hamburger2 {
     }
 
     public void checkThisHamburger(){
-        String lettuce = (additionals.isLettuce()) ? "lettuce, " : "";
-        String tomato = (additionals.isTomato()) ? "tomato, " : "";
-        String carrot = (additionals.isCarrot()) ? "carrot, " : "";
-        String cheese = (additionals.isCheese()) ? "cheese, " : "";
+        String drinks = (additionals.isDrinks()) ? "drinks, " : "";
+        String chips = (additionals.isChips()) ? "chips, " : "";
         String meat = (baseBurger.isMeat()) ? "meat, " : "";
-        System.out.println("This hamburger has " + baseBurger.getBreadRollType() + ", "+ meat + lettuce + tomato + carrot + cheese);
+        System.out.println("This hamburger has " + baseBurger.getBreadRollType() + ", "+ meat + drinks + chips);
         System.out.println("This hamburger has base price is " + baseBurger.getBasePrice());
         System.out.println("This hamburger has additional price is " + additionals.getAdditionalPrice());
         System.out.println("The grant price of hamburger is " + getGrantPrice());
+    }
+
+    public double checkPrices(String item){
+        return new CheckPrices().checkPrices(getBaseBurger(), getAdditionals(), item);
     }
 
     public BaseBurger getBaseBurger() {
