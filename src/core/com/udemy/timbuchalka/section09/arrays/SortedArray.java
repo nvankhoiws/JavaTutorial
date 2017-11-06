@@ -43,6 +43,7 @@ public class SortedArray {
                     intArray[j+1] = intArray[j];
                 }
             }
+            System.out.println();
             intArray[j+1] = key;
         }
         return intArray;
