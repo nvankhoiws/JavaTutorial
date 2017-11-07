@@ -31,20 +31,15 @@ public class SortedArray {
     }
 
     public static int[] sortIntegers(int[] intArray){
-        for (int i = 1; i <intArray.length ; i++) {
-            int key = intArray[i];
-            int j = i - 1;
-            while (key > intArray[j] && j > 0){
-                intArray[j+1] = intArray[j];
-                j--;
+        int n = intArray.length;
+        for (int j = 1; j < n; j++) {
+            int key = intArray[j];
+            int i = j-1;
+            while ( (i > -1) && ( intArray [i] > key ) ) {
+                intArray [i+1] = intArray [i];
+                i--;
             }
-            if (j == 0) {
-                if (key > intArray[j]){
-                    intArray[j+1] = intArray[j];
-                }
-            }
-            System.out.println();
-            intArray[j+1] = key;
+            intArray[i+1] = key;
         }
         return intArray;
     }
