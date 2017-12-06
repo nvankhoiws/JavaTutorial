@@ -1,0 +1,13 @@
+package core.com.udemy.timbuchalka.section10_interface_abstract_inner.interfaces;
+
+public interface ITelephone {
+    void powerOn();
+
+    void dial(int phoneNumber);
+
+    void answer();
+
+    boolean callPhone(int phoneNumber);
+
+    boolean isRinging();
+}

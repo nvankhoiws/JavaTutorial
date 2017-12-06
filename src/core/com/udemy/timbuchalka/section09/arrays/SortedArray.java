@@ -26,7 +26,7 @@ public class SortedArray {
 
     public static void printArray(int[] intArray){
         for (int i = 0; i < intArray.length ; i++) {
-            System.out.println("The element number " + i + "is " + intArray[i]);
+            System.out.println("The element number " + i + " is " + intArray[i]);
         }
     }
 
