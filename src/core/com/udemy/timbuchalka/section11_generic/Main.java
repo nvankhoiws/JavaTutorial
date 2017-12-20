@@ -1,24 +1,25 @@
 package core.com.udemy.timbuchalka.section11_generic;
 
-import java.util.ArrayList;
-
 public class Main {
 
     public static void main(String[] args) {
-        ArrayList<Integer> items = new ArrayList();
-        items.add(1);
-        items.add(2);
-        items.add(3);
-//        items.add("tim");
-        items.add(4);
-        items.add(5);
+        Team<FootballPlayer> hanoiTT = new Team<>("HanoiTT");
 
-        printDoubled(items);
+        FootballPlayer congPhuong = new FootballPlayer("Cong Phuong");
+        VolleyBallPlayer vanKieu = new VolleyBallPlayer("Van Kieu");
+        BasketBallPlayer caoKeu = new BasketBallPlayer("Cao Keu");
+
+        hanoiTT.addPlayer(congPhuong);
+        hanoiTT.addPlayer(vanKieu);
+        hanoiTT.addPlayer(caoKeu);
+
+        // What problem when we use any kind of data like this Team<String> ?
+
+        // Implement the matchResult method in Team class ?
+
+        // How to a football team fight with a basket ball team ? How to prevent that
+
     }
 
-    private static void printDoubled(ArrayList<Integer> n) {
-        for(int i : n) {
-            System.out.println( i * 2);
-        }
-    }
+
 }
