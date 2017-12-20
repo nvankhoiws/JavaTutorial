@@ -1,4 +1,4 @@
-package src.core.self.arithmetic;
+package core.self.arithmetic;
 
 /**
  * Created by Khoi.NguyenVan@nttdata.com on 12/1/201711:46 AM.
