@@ -106,6 +106,6 @@ public class Team <T extends Player> implements Comparable<Team<T>>{
      */
     @Override
     public int compareTo(Team<T> team) {
-        return (this.ranking() > team.ranking()) ? -1 : (this.ranking() == team.ranking() ? 0 : 1);
+        return (this.ranking() > team.ranking()) ? 1 : (this.ranking() == team.ranking() ? 0 : -1);
     }
 }
