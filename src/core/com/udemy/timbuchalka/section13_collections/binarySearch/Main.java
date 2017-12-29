@@ -26,22 +26,32 @@ public class Main {
 
         boolean reservedOrNot = theatre.reserveSeat("A06");
         if (!reservedOrNot) System.out.println("The seat A06 is already reserved!");
+        printList(seatCopy);
+        System.out.println("max " + Collections.max(seatCopy));
+        System.out.println("min " + Collections.min(seatCopy));
 
-        for (int i = 0, length = seatCopy.size(); i < length; i++) {
-            System.out.print(seatCopy.get(i).getSeatNumber() + " ");
-        }
         System.out.println("==========================================");
         Collections.reverse(seatCopy);
-
-        for (int i = 0, length = seatCopy.size(); i < length; i++) {
-            System.out.print(seatCopy.get(i).getSeatNumber() + " ");
-        }
+        printList(seatCopy);
+        System.out.println("max " + Collections.max(seatCopy));
+        System.out.println("min " + Collections.min(seatCopy));
 
         System.out.println("==========================================");
         Collections.shuffle(seatCopy);
+        printList(seatCopy);
+        System.out.println("max " + Collections.max(seatCopy));
+        System.out.println("min " + Collections.min(seatCopy));
 
-        for (int i = 0, length = seatCopy.size(); i < length; i++) {
-            System.out.print(seatCopy.get(i).getSeatNumber() + " ");
+        System.out.println("==========================================");
+        // Try to copy from a list to another list
+        List<Theatre.Seat> copiedList = new ArrayList<>(seatCopy.size());
+        Collections.copy(copiedList, seatCopy);
+        printList(copiedList);
+    }
+
+    private static void printList(List<Theatre.Seat> seats) {
+        for (int i = 0, length = seats.size(); i < length; i++) {
+            System.out.print(seats.get(i).getSeatNumber() + " ");
         }
     }
 }

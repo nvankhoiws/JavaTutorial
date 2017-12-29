@@ -97,6 +97,11 @@ public class Theatre {
         public int compareTo(Seat o) {
             return (this.seatNumber.compareTo(o.seatNumber) > 0) ? 1 : ((this.seatNumber.compareTo(o.seatNumber) < 0) ? -1 : 0);
         }
+
+        @Override
+        public String toString() {
+            return seatNumber;
+        }
     }
 
 }
