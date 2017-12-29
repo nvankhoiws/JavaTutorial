@@ -28,21 +28,30 @@ public class Theatre {
     }
 
     public boolean reserveSeat(String seatNumber) {
-        Seat requestedSeat = null;
-        for(Seat seat : seats) {
-            timeCounter++;
-            if(seat.getSeatNumber().equals(seatNumber)) {
-                requestedSeat = seat;
-                break;
-            }
-        }
-        System.out.println("The times to loop over collections of seats is " + timeCounter);
-        if(requestedSeat == null) {
+//        Seat requestedSeat = null;
+        int found = Collections.binarySearch(seats, new Seat(seatNumber));
+        if (found >= 0){
+//            return requestedSeat = seats.get(found).reserve();
+            return seats.get(found).reserve();
+        } else {
             System.out.println("There is no seat " + seatNumber);
             return false;
         }
-
-        return requestedSeat.reserve();
+//        Seat requestedSeat = null;
+//        for(Seat seat : seats) {
+//            timeCounter++;
+//            if(seat.getSeatNumber().equals(seatNumber)) {
+//                requestedSeat = seat;
+//                break;
+//            }
+//        }
+//        System.out.println("The times to loop over collections of seats is " + timeCounter);
+//        if(requestedSeat == null) {
+//            System.out.println("There is no seat " + seatNumber);
+//            return false;
+//        }
+//
+//        return requestedSeat.reserve();
     }
 
     // for testing
@@ -52,7 +61,7 @@ public class Theatre {
         }
     }
 
-    private class Seat {
+    private class Seat implements Comparable<Seat>{
         private final String seatNumber;
         private boolean reserved = false;
 
@@ -82,6 +91,11 @@ public class Theatre {
 
         public String getSeatNumber() {
             return seatNumber;
+        }
+
+        @Override
+        public int compareTo(Seat o) {
+            return (this.seatNumber.compareTo(o.seatNumber) > 0) ? 1 : ((this.seatNumber.compareTo(o.seatNumber) < 0) ? -1 : 0);
         }
     }
 
