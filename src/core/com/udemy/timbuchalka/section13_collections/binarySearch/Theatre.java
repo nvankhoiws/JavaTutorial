@@ -1,4 +1,4 @@
-package core.com.udemy.timbuchalka.section13_collections.overview.sample;
+package core.com.udemy.timbuchalka.section13_collections.binarySearch;
 
 import java.util.*;
 
