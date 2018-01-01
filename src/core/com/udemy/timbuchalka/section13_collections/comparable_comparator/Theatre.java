@@ -12,19 +12,24 @@ public class Theatre {
     private final String theatreName;
     private List<Seat> seats = new ArrayList<>();
 
-    public static Comparator<Seat> SORT_BY_SEAT_NAME = new Comparator<Seat>() {
-        @Override
-        public int compare(Seat o1, Seat o2) {
-            return (o1.seatNumber.compareTo(o2.seatNumber) > 0) ? 1 : ((o1.seatNumber.compareTo(o2.seatNumber) < 0) ? -1 : 0);
-        }
-    };
+    public static Comparator<Seat> SORT_BY_SEAT_NAME;
 
-    public static Comparator<Seat> SORT_BY_PRICE = new Comparator<Seat>() {
-        @Override
-        public int compare(Seat o1, Seat o2) {
-            return (int) Math.floor(o1.price - o2.price);
-        }
-    };
+    public static Comparator<Seat> SORT_BY_PRICE;
+
+    static {
+        SORT_BY_PRICE = new Comparator<Seat>() {
+            @Override
+            public int compare(Seat o1, Seat o2) {
+                return (int) Math.floor(o1.price - o2.price);
+            }
+        };
+        SORT_BY_SEAT_NAME = new Comparator<Seat>() {
+            @Override
+            public int compare(Seat o1, Seat o2) {
+                return (o1.seatNumber.compareTo(o2.seatNumber) > 0) ? 1 : ((o1.seatNumber.compareTo(o2.seatNumber) < 0) ? -1 : 0);
+            }
+        };
+    }
 
     public Theatre(String theatreName, int numRows, int seatsPerRow) {
         this.theatreName = theatreName;
