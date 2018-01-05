@@ -32,4 +32,33 @@ public final class HeavenlyBody {
     public Set<HeavenlyBody> getSatellites() {
         return new HashSet<>(this.satellites);
     }
+
+//    @Override
+//    public boolean equals(Object obj) {
+//        if (this == obj) {
+//            return true;
+//        }
+//        return (this.getName().equals(((HeavenlyBody)obj).getName()));
+//    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        HeavenlyBody that = (HeavenlyBody) o;
+
+        if (Double.compare(that.orbitalPeriod, orbitalPeriod) != 0) return false;
+        return name.equals(that.name);
+    }
+
+    @Override
+    public int hashCode() {
+        int result;
+        long temp;
+        result = name.hashCode();
+        temp = Double.doubleToLongBits(orbitalPeriod);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        return result;
+    }
 }

@@ -35,9 +35,6 @@ public class Main {
         solarSystem.put(temp.getName(), temp);
         planets.add(temp);
 
-        temp = new HeavenlyBody("Mars", 687);
-        planets.add(temp);
-
         tempMoon = new HeavenlyBody("Deimos", 1.3);
         solarSystem.put(tempMoon.getName(), tempMoon);
         temp.addMoon(tempMoon); // temp is still Mars
@@ -103,7 +100,21 @@ public class Main {
             System.out.println("\t" + moon.getName());
         }
 
+        System.out.println("=====================================");
+        temp = new HeavenlyBody("Pluto", 248);
+        planets.add(temp);
+        for(HeavenlyBody planet : planets) {
+            System.out.println("\t" + planet.getName() + " : " + planet.getOrbitalPeriod());
+        }
 
+        // Test equal method when not overridding hashCode() method
+        // solarSystem.get("Mars").equals(new HeavenlyBody("Mars", 230));
 
+        // Test equal method when not overridding hashCode() method
+        temp = new HeavenlyBody("Mars", 687);
+        System.out.println(planets.add(temp));
+        for(HeavenlyBody planet : planets) {
+            System.out.println("\t" + planet.getName() + " : " + planet.getOrbitalPeriod());
+        }
     }
 }
