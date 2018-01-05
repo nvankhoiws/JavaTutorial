@@ -5,11 +5,16 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+/**
+ * 1.   a set is naturally able to add null object
+ * 2.   if a object is init will new keyword, then add to set which already has same value object, then a set can contain duplicate objects,... find a way to prevent this ?
+ */
 public class Main {
     private static Map<String, HeavenlyBody> solarSystem = new HashMap<>();
     private static Set<HeavenlyBody> planets = new HashSet<>();
 
     public static void main(String[] args) {
+
         HeavenlyBody temp = new HeavenlyBody("Mercury", 88);
         solarSystem.put(temp.getName(), temp);
         planets.add(temp);
@@ -28,6 +33,9 @@ public class Main {
 
         temp = new HeavenlyBody("Mars", 687);
         solarSystem.put(temp.getName(), temp);
+        planets.add(temp);
+
+        temp = new HeavenlyBody("Mars", 687);
         planets.add(temp);
 
         tempMoon = new HeavenlyBody("Deimos", 1.3);
