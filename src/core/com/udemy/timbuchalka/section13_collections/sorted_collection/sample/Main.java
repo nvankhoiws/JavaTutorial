@@ -4,7 +4,7 @@ public class Main {
     private static StockList stockList = new StockList();
 
     public static void main(String[] args) {
-	    StockItem temp = new StockItem("bread", 0.86, 100);
+	    StockItem temp = new StockItem("vase", 8.76, 40);
         stockList.addStock(temp);
 
         temp = new StockItem("cake", 1.10, 7);
@@ -31,7 +31,7 @@ public class Main {
         temp = new StockItem("towel", 2.40, 80);
         stockList.addStock(temp);
 
-        temp = new StockItem("vase", 8.76, 40);
+        temp = new StockItem("bread", 0.86, 100);
         stockList.addStock(temp);
 
         System.out.println(stockList);

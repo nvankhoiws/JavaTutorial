@@ -1,11 +1,11 @@
-package core.com.udemy.timbuchalka.section13_collections.sorted_collection.sample;
+package com.timbuchalka;
 
 /**
  * Created by dev on 16/02/2016.
  */
 public class StockItem implements Comparable<StockItem> {
     private final String name;
-    private Double price;
+    private double price;
     private int quantityStock = 0;
 
     public StockItem(String name, double price) {

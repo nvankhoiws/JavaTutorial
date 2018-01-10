@@ -1,6 +1,8 @@
-package core.com.udemy.timbuchalka.section13_collections.sorted_collection.sample;
+package core.com.udemy.timbuchalka.section13_collections.treemap_unmodifiablemap.sample;
 
-import java.util.*;
+import java.util.Collections;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 /**
  * Created by dev on 16/02/2016.
@@ -9,7 +11,7 @@ public class StockList {
     private final Map<String, StockItem> list;
 
     public StockList() {
-        this.list = new TreeMap<>();
+        this.list = new LinkedHashMap<>();
     }
 
     public int addStock(StockItem item) {
@@ -39,6 +41,14 @@ public class StockList {
 
     public StockItem get(String key) {
         return list.get(key);
+    }
+
+    public Map<String, Double> PriceList() {
+        Map<String, Double> prices = new LinkedHashMap<>();
+        for(Map.Entry<String, StockItem> item : list.entrySet()) {
+            prices.put(item.getKey(), item.getValue().getPrice());
+        }
+        return Collections.unmodifiableMap(prices);
     }
 
     public Map<String, StockItem> Items() {
