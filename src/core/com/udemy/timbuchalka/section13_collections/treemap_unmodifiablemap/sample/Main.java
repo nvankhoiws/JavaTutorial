@@ -71,9 +71,11 @@ public class Main {
         stockList.get("car").adjustStock(-1000);
         System.out.println(stockList);
         for(Map.Entry<String, Double> price: stockList.PriceList().entrySet()) {
+            stockList.get(price.getKey()).adjustStock(3000);
             System.out.println(price.getKey() + " costs " + price.getValue());
         }
 
+        System.out.println(stockList);
 
     }
 
