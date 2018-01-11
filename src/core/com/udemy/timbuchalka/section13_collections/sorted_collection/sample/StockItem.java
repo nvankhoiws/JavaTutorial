@@ -62,7 +62,7 @@ public class StockItem implements Comparable<StockItem> {
 
     @Override
     public int hashCode() {
-        return this.name.hashCode() + 31;
+        return this.name.hashCode();
     }
 
     @Override
