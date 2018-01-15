@@ -1,9 +1,6 @@
 package core.com.udemy.timbuchalka.section15_IO.filewriter;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
@@ -33,23 +30,52 @@ public class Locations implements Map<Integer, Location> {
 //    }
 
     // Use FileWriter
+//    public static void main(String[] args) {
+//        long startTime = System.currentTimeMillis();
+//        FileWriter fileWriter = null;
+//        try {
+//            fileWriter = new FileWriter("locations.txt");
+//            for (Map.Entry<Integer, Location> entry : locations.entrySet()) {
+//                fileWriter.write( entry.getKey() + ", " + entry.getValue().getDescription() + "\n");
+//            }
+//        } catch (IOException e) {
+//            System.out.println("In catch block");
+//        } finally {
+//            try {
+//                fileWriter.close();
+//            } catch (IOException e) {
+//                System.out.println("In catch of filewriter close block");
+//            }
+//            System.out.println("In finally block");
+//        }
+//        long endTime = System.currentTimeMillis();
+//        System.out.println("Time taken = " + (endTime - startTime));
+//    }
+
+    // Use FileWriter + BufferWriter(use bufferwriter will make your write process become faster)
     public static void main(String[] args) {
+        long startTime = System.currentTimeMillis();
         FileWriter fileWriter = null;
+        BufferedWriter bufferedWriter = null;
         try {
             fileWriter = new FileWriter("locations.txt");
+            bufferedWriter = new BufferedWriter(fileWriter);
             for (Map.Entry<Integer, Location> entry : locations.entrySet()) {
-                fileWriter.write( entry.getKey() + ", " + entry.getValue().getDescription() + "\n");
+                bufferedWriter.write( entry.getKey() + ", " + entry.getValue().getDescription() + "\n");
             }
         } catch (IOException e) {
             System.out.println("In catch block");
         } finally {
             try {
+                bufferedWriter.close();
                 fileWriter.close();
             } catch (IOException e) {
                 System.out.println("In catch of filewriter close block");
             }
             System.out.println("In finally block");
         }
+        long endTime = System.currentTimeMillis();
+        System.out.println("Time taken = " + (endTime - startTime));
     }
 
     public Locations() {
