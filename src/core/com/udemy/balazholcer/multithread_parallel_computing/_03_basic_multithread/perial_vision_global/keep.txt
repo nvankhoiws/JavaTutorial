@@ -1,0 +1,1 @@
+Viet mot ham parse chuoi ket qua va dung ham join cua multithread de doi ket qua cua nhau;
