@@ -26,10 +26,17 @@ public abstract class DataObject implements VisionGlobalConstants {
     }
 
     protected void normalizeDataObject(DataObject o1, DataObject o2, String type){
-        String o1_prefix_unit = o1.unit.replace(EURO, EMPTY_STRING);
+        String o1_prefix_unit = "";
+        String o2_prefix_unit = "";
+        if (type.equalsIgnoreCase("conso")){
+            o1_prefix_unit = o1.unit.replace(WH, EMPTY_STRING);
+            o2_prefix_unit = o2.unit.replace(WH, EMPTY_STRING);
+        } else if (type.equalsIgnoreCase("cost")) {
+            o1_prefix_unit = o1.unit.replace(EURO, EMPTY_STRING);
+            o2_prefix_unit = o2.unit.replace(EURO, EMPTY_STRING);
+        }
         int o1_unitIndex = Arrays.asList(PREFIX_KEY).indexOf(o1_prefix_unit);
 
-        String o2_prefix_unit = o2.unit.replace(EURO, EMPTY_STRING);
         int o2_unitIndex = Arrays.asList(PREFIX_KEY).indexOf(o2_prefix_unit);
 
         int common_unitIndex = (o1_unitIndex >= o2_unitIndex) ? o2_unitIndex : o1_unitIndex;
@@ -38,5 +45,13 @@ public abstract class DataObject implements VisionGlobalConstants {
 
         o1.data = o1.data * Math.pow(1000, o1_unitIndex - common_unitIndex);
         o2.data = o2.data * Math.pow(1000, o2_unitIndex - common_unitIndex);
+    }
+
+    @Override
+    public String toString() {
+        return "Name " + this.name + " | " +
+                "Data " + this.data+ " | " +
+                "Fluid " + this.fluid + " | " +
+                "Unit " + this.unit;
     }
 }
