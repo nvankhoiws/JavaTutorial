@@ -54,29 +54,78 @@ public class Locations implements Map<Integer, Location> {
 
     // Use FileWriter + BufferWriter(use bufferwriter will make your write process become faster)
     public static void main(String[] args) {
-        long startTime = System.currentTimeMillis();
-        FileWriter fileWriter = null;
-        BufferedWriter bufferedWriter = null;
         try {
-            fileWriter = new FileWriter("locations.txt");
-            bufferedWriter = new BufferedWriter(fileWriter);
+            writeProcess();
+        } catch (IOException e) {
+            System.out.println("Excpetion is thrown from previous method called");
+        }
+    }
+
+    // the method that use try-with-resource
+    public static void writeProcess() throws IOException {
+        long startTime = System.currentTimeMillis();
+        try (
+            FileWriter fileWriter = new FileWriter("locations.txt");
+            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+        ) {
             for (Map.Entry<Integer, Location> entry : locations.entrySet()) {
                 bufferedWriter.write( entry.getKey() + ", " + entry.getValue().getDescription() + "\n");
+//                throw new IOException();
             }
-        } catch (IOException e) {
-            System.out.println("In catch block");
-        } finally {
-            try {
-                bufferedWriter.close();
-                fileWriter.close();
-            } catch (IOException e) {
-                System.out.println("In catch of filewriter close block");
-            }
-            System.out.println("In finally block");
         }
         long endTime = System.currentTimeMillis();
         System.out.println("Time taken = " + (endTime - startTime));
     }
+
+    // the method that propagates the exception through stack trace and handled at other method that calls this method
+//    public static void writeProcess() throws IOException {
+//        long startTime = System.currentTimeMillis();
+//        FileWriter fileWriter = null;
+//        BufferedWriter bufferedWriter = null;
+//        try {
+//            fileWriter = new FileWriter("locations.txt");
+//            bufferedWriter = new BufferedWriter(fileWriter);
+//            for (Map.Entry<Integer, Location> entry : locations.entrySet()) {
+//                bufferedWriter.write( entry.getKey() + ", " + entry.getValue().getDescription() + "\n");
+//                throw new IOException("throw a temp exception");
+//            }
+//        }
+//        finally {
+//            bufferedWriter.close();
+//            fileWriter.close();
+//            System.out.println("In finally block");
+//        }
+//        long endTime = System.currentTimeMillis();
+//        System.out.println("Time taken = " + (endTime - startTime));
+//    }
+
+    // the method that do not propagate the exception above the stack trace
+//    public static void writeProcess(){
+//        long startTime = System.currentTimeMillis();
+//        FileWriter fileWriter = null;
+//        BufferedWriter bufferedWriter = null;
+//        try {
+//            fileWriter = new FileWriter("locations.txt");
+//            bufferedWriter = new BufferedWriter(fileWriter);
+//            for (Map.Entry<Integer, Location> entry : locations.entrySet()) {
+//                bufferedWriter.write( entry.getKey() + ", " + entry.getValue().getDescription() + "\n");
+//                throw new IOException("throw a temp exception");
+//            }
+//        } catch (IOException e) {
+//            System.out.println("In catch block");
+//        }
+//        finally {
+//            try {
+//                bufferedWriter.close();
+//                fileWriter.close();
+//            } catch (IOException e) {
+//                System.out.println("In catch of filewriter close block");
+//            }
+//            System.out.println("In finally block");
+//        }
+//        long endTime = System.currentTimeMillis();
+//        System.out.println("Time taken = " + (endTime - startTime));
+//    }
 
     public Locations() {
         System.out.println("This is default constructor!");
