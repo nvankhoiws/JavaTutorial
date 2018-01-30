@@ -1,9 +1,6 @@
 package core.com.udemy.timbuchalka.section20_databases.creating_db;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -23,8 +20,19 @@ public class Main {
             statement.execute("update students set name ='Nguyen Van Khoi' " +
                     "where name = 'khoi'");
 
-            statement.execute("delete from students where name = 'dung'");
+//            statement.execute("delete from students where name = 'dung'");
 
+            statement.execute("select * from students");
+
+            ResultSet resultSet = statement.getResultSet();
+
+            while (resultSet.next()) {
+                System.out.println("Name " + resultSet.getString("name") + "\t"
+                                    + "Phone " + resultSet.getString("phone") + "\t"
+                                    + "Email " + resultSet.getString("email"));
+            }
+
+            resultSet.close();
             statement.close();
             connection.close();
         } catch (SQLException e) {
