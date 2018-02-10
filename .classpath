@@ -2,5 +2,7 @@
 <classpath>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="lib/balazholcer/gson-2.3.1.jar"/>
+	<classpathentry kind="lib" path="lib/tim_buchalka/sqlite-tools-win32-x86-3210000/sqlite-jdbc-3.15.1.jar"/>
 	<classpathentry kind="output" path="out/production/JavaTutorial"/>
 </classpath>
