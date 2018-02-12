@@ -53,14 +53,14 @@ public class DataSource {
         try {
             resultSet = statement.executeQuery("select * from " + TABLE_ARTISTS);
             while (resultSet.next()) {
-                Integer id = Integer.valueOf(resultSet.getString(ARTISTS_COLUMN_ID));
+                Integer id = Integer.valueOf(resultSet.getInt(ARTISTS_COLUMN_ID));
                 String name = String.valueOf(resultSet.getString(ARTISTS_COLUMN_NAME));
                 Artists one = new Artists(id,name);
                 list.add(one);
                 System.out.println("id : " + id + "\t"
                                     +" name : " + name);
             }
-
+            return list;
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {

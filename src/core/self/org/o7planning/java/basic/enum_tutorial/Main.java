@@ -36,6 +36,10 @@ public class Main {
         System.out.println("code : " + WeekDay.SUNDAY.getCode());
         System.out.println("vietnamese version : " + WeekDay.SUNDAY.getVietnameseVersion());
         System.out.println("number of the day in the week : " + WeekDay.SUNDAY.getNumberInWeek());
+
+        System.out.println("===================================");
+
+        System.out.println("The hex code of red color" + Color.RED.getHexCode());
     }
 
 }
