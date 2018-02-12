@@ -4,10 +4,11 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DataSource {
+public class DataSource2 {
     private static final String DATABASE_NAME = "music.db";
-    private static final String CONNECTION_PATH = "jdbc:sqlite:D:\\STUDY\\Java\\JavaTutorial\\" +
-            "src\\core\\com\\udemy\\timbuchalka\\section20_databases\\queryForArtists\\model\\" + DATABASE_NAME;
+    private static final String CONNECTION_PATH = "jdbc:sqlite:E:\\IFITemp\\SelfStudy\\Java\\" + // company path
+    // private static final String CONNECTION_PATH = "jdbc:sqlite:D:\\STUDY\\Java\\" + // home path
+            "JavaTutorial\\src\\core\\com\\udemy\\timbuchalka\\section20_databases\\queryForArtists\\model\\" + DATABASE_NAME;
 
     private Connection connection;
     private Statement statement;
@@ -16,7 +17,7 @@ public class DataSource {
     private static String ARTISTS_COLUMN_ID = "_id";
     private static String ARTISTS_COLUMN_NAME = "name";
 
-    public DataSource() {
+    public DataSource2() {
 
     }
 
@@ -47,11 +48,15 @@ public class DataSource {
         return true;
     }
 
-    public List<Artists> queryArtists(){
+    public List<Artists> queryArtists(ORDER_BY order_by){
+        StringBuilder sb = new StringBuilder();
+        sb.append("select * from ").append(TABLE_ARTISTS).append(" order by ").append(ARTISTS_COLUMN_NAME + " ").append(order_by);
+
         ResultSet resultSet = null;
         List<Artists> list = new ArrayList<>();
         try {
-            resultSet = statement.executeQuery("select * from " + TABLE_ARTISTS);
+//            resultSet = statement.executeQuery("select * from " + TABLE_ARTISTS);
+            resultSet = statement.executeQuery(sb.toString());
             while (resultSet.next()) {
                 Integer id = Integer.valueOf(resultSet.getString(ARTISTS_COLUMN_ID));
                 String name = String.valueOf(resultSet.getString(ARTISTS_COLUMN_NAME));
