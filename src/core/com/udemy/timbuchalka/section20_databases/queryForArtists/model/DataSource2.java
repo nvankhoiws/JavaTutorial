@@ -6,8 +6,8 @@ import java.util.List;
 
 public class DataSource2 {
     private static final String DATABASE_NAME = "music.db";
-    private static final String CONNECTION_PATH = "jdbc:sqlite:E:\\IFITemp\\SelfStudy\\Java\\" + // company path
-    // private static final String CONNECTION_PATH = "jdbc:sqlite:D:\\STUDY\\Java\\" + // home path
+//    private static final String CONNECTION_PATH = "jdbc:sqlite:E:\\IFITemp\\SelfStudy\\Java\\" + // company path
+     private static final String CONNECTION_PATH = "jdbc:sqlite:D:\\STUDY\\Java\\" + // home path
             "JavaTutorial\\src\\core\\com\\udemy\\timbuchalka\\section20_databases\\queryForArtists\\model\\" + DATABASE_NAME;
 
     private Connection connection;
@@ -97,11 +97,42 @@ public class DataSource2 {
                 System.out.println("id : " + id + "\t"
                         +" name : " + name);
             }
-
             System.out.println();
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        return null;
+    }
+
+    public List<Albums> queryAlbumsByArtistByIndex(String nameOfArtist) {
+        StringBuilder sb = new StringBuilder();
+        sb.append("select * from albums inner join artists on albums.artist = artists._id where artists.name = \"" + nameOfArtist + "\"");
+        try (ResultSet resultSet = statement.executeQuery(sb.toString())){
+            while (resultSet.next()) {
+                System.out.print("Album's name:\t" + resultSet.getString(2) + "\t\t\t");
+                System.out.println("Artist's name:\t" + resultSet.getString(5));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public List<Artists> queryArtistsBySong(String nameOfSong) {
+//    	select * from songs inner join albums inner join artists 
+//    	on songs.album = albums.artist and albums.artist = artists._id
+//    	where songs.title = "Evil Woman";
+        StringBuilder sb = new StringBuilder("select * from songs inner join albums inner join artists "
+        		+ "on songs.album = albums.artist and albums.artist = artists._id "
+        		+ "where songs.title = '" + nameOfSong + "'");
+        try (ResultSet resultSet = statement.executeQuery(sb.toString())){
+        	while (resultSet.next()) {
+    			Artists artists = new Artists(resultSet.getInt(8), resultSet.getString(9));
+            	System.out.println("Artist's id = " + artists.get_id() + "\tArtist's name = " + artists.getName());
+			}
+        } catch (SQLException e) {
+			e.printStackTrace();
+		}
         return null;
     }
 

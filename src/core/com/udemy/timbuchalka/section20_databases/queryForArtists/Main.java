@@ -9,11 +9,13 @@ public class Main {
 //        DataSource dataSource = new DataSource();
         DataSource2 dataSource = new DataSource2();
         if (dataSource.connect()) {
-            dataSource.queryArtists(ORDER_BY.NONE);
-            System.out.println("===================");
-            dataSource.queryArtists_useTryWithResource(ORDER_BY.NONE);
+//            dataSource.queryArtists(ORDER_BY.NONE);
+//            System.out.println("===================");
+//            dataSource.queryArtists_useTryWithResource(ORDER_BY.NONE);
+//            dataSource.queryAlbumsByArtistByIndex("Wishbone Ash");
+        	dataSource.queryArtistsBySong("Evil Woman");
         }
         dataSource.close();
-        System.out.println("Observing man");
+//        System.out.println("Observing man");
     }
 }
