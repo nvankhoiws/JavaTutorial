@@ -122,18 +122,24 @@ public class DataSource2 {
 //    	select * from songs inner join albums inner join artists 
 //    	on songs.album = albums.artist and albums.artist = artists._id
 //    	where songs.title = "Evil Woman";
-        StringBuilder sb = new StringBuilder("select * from songs inner join albums inner join artists "
+        StringBuilder sb = new StringBuilder("select artists.name, albums.name, songs.title from songs inner join albums inner join artists "
         		+ "on songs.album = albums.artist and albums.artist = artists._id "
-        		+ "where songs.title = '" + nameOfSong + "'");
+        		+ "where songs.title = '" + nameOfSong + "'" 
+        		+ " order by albums.name desc");
         try (ResultSet resultSet = statement.executeQuery(sb.toString())){
         	while (resultSet.next()) {
-    			Artists artists = new Artists(resultSet.getInt(8), resultSet.getString(9));
-            	System.out.println("Artist's id = " + artists.get_id() + "\tArtist's name = " + artists.getName());
+//    			Artists artists = new Artists(resultSet.getInt(8), resultSet.getString(9));
+//            	System.out.println("Artist's id = " + artists.get_id() + "\tArtist's name = " + artists.getName());
+            	System.out.println("Artist's name = " + resultSet.getString(1) + "\tAlbum's name = " + resultSet.getString(2) + "\tSong's name = " + resultSet.getString(3));
 			}
         } catch (SQLException e) {
 			e.printStackTrace();
 		}
         return null;
+    }
+    
+    public void getResultSetMetaData(String nameOfTable) {
+    	
     }
 
 }
