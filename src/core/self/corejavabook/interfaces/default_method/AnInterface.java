@@ -1,4 +1,4 @@
-package core.self.corejavabook.lambda.interfaces.default_method;
+package core.self.corejavabook.interfaces.default_method;
 
 public interface AnInterface {
 
