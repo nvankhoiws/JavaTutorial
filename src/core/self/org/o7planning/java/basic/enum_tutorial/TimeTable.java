@@ -6,7 +6,7 @@ package core.self.org.o7planning.java.basic.enum_tutorial;
 public class TimeTable {
     private static String getJob(WeekDay weekDay) {
         if (weekDay == WeekDay.SATURDAY || weekDay == WeekDay.SUNDAY) {
-            return "Nothing";
+            return "Do nothing";
         }
         return "Coding";
     }

@@ -40,8 +40,8 @@ public class Main {
         System.out.println("===================================");
 
         System.out.println("The hex code of red color" + Color.RED.getHexCode());
-        System.out.println("The hex code of red color" + Color.BLUE.getHexCode());
-        System.out.println("The hex code of red color" + Color.GREEN.getHexCode());
+        System.out.println("The hex code of blue color" + Color.BLUE.getHexCode());
+        System.out.println("The hex code of green color" + Color.GREEN.getHexCode());
     }
 
 }

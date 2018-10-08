@@ -1,4 +1,4 @@
-package core.self.corejavabook.lambda;
+package core.self.corejavabook.lambda.syntax;
 
 import javafx.application.Application;
 import javafx.event.ActionEvent;
