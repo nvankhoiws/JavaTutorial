@@ -10,7 +10,7 @@ public class ConstructorReferenceDemo {
         names.add("Paul");
         names.add("Mary");
         Employee[] employees = names.stream().map(Employee::new).toArray(Employee[]::new);
-        Collections.
+//        Collections.l
         for (Employee e : employees) System.out.println(e.getName());
     }
 }
