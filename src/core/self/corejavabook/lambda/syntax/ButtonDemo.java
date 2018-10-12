@@ -23,9 +23,9 @@ public class ButtonDemo extends Application {
 		 * block code 1
 		 * This block code equals with block code 2
 		 */
-		//        button.setOnAction(e ->  {
-//            System.out.println(e instanceof EventHandler);
-//        });
+		// button.setOnAction(e ->  {
+		// 		System.out.println(e instanceof EventHandler);
+		// });
 
 		/**
 		 * start: block code 2
