@@ -5,6 +5,10 @@ import java.util.Collections;
 
 public class ConstructorReferenceDemo {
     public static void main(String[] args) {
+        /**
+         * Problem:
+         * Establish new arrays of object from array of string
+         */
         ArrayList<String> names = new ArrayList<>();
         names.add("Peter");
         names.add("Paul");

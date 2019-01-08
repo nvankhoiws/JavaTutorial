@@ -6,6 +6,10 @@ import java.util.function.Predicate;
 
 public class LambdaDemo {
     public static void main(String[] args) {
+        /**
+         * Problem:
+         * Remove a string from an array if it satisfies with condition
+         */
         String[] friends = { "Peter", "Paul", "Mary" };
         Arrays.sort(friends, (_1, _2) -> _1.length() - _2.length());
         System.out.println(Arrays.toString(friends));
