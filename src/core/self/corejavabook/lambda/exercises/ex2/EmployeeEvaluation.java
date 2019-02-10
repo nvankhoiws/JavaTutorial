@@ -1,4 +1,4 @@
-package core.self.corejavabook.lambda.exercises.ex1;
+package core.self.corejavabook.lambda.exercises.ex2;
 
 public class EmployeeEvaluation {
     public static void main(String[] args) {

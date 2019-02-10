@@ -12,6 +12,11 @@ public class RunnableDemo {
 class HelloTask implements Runnable {
     public void run() {
         for (int i = 0; i < 1000; i++) {
+            try {
+                Thread.sleep(1000 - i);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             System.out.println(Thread.currentThread().getName() + " Hello, World!");
         }
     }

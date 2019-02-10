@@ -22,12 +22,14 @@ public class RepeatDemo {
               System.out.println(text);
            }
         };
-        new Thread(r).start();                  
+        Thread t = new Thread(r);
+        t.start();
+        System.out.println(t.getId());
      }
     
     public static void main(String[] args) {
-//        repeat(10, () -> System.out.println("Hello, World!"));
-        repeat(10, i -> System.out.println("Countdown: " + (9 - i)));
-        repeatMessage("Hello", 10);
+        repeat(10, () -> System.out.println("Hello, World!"));
+//        repeat(10, i -> System.out.println("Countdown: " + (9 - i)));
+//        repeatMessage("Hello", 10);
     }
 }
