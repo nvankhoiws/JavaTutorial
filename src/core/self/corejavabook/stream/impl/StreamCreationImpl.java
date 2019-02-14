@@ -12,10 +12,10 @@ public class StreamCreationImpl implements StreamCreation {
 	public static void main(String[] args) {
 		StreamCreation streamCreation = new StreamCreationImpl();
 //		streamCreation.createStreamFromEmpty();
-//		streamCreation.createStreamFromConstant();
+		streamCreation.createStreamFromConstant();
 //		streamCreation.createStreamFromRandom();
 //		streamCreation.createStreamFromInfiniteIteration();
-		streamCreation.createStreamFromFiniteIteration();
+//		streamCreation.createStreamFromFiniteIteration();
 	}
 
 	@Override
@@ -26,7 +26,8 @@ public class StreamCreationImpl implements StreamCreation {
 
 	@Override
 	public Stream createStreamFromConstant() {
-		System.out.println(Stream.generate(() -> "Constants").findFirst().get());
+		// Generate infinite constant value stream
+		Stream.generate(() -> "Constants").forEach(s -> System.out.println(s));
 		return null;
 	}
 

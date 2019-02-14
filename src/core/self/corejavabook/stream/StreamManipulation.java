@@ -13,9 +13,15 @@ public interface StreamManipulation<T> {
 
 	Stream<T> transformStreamByFlatMap();
 
-	Stream<T> subStream();
+	Stream<T> subStreamByLimit();
 
-	Stream<T> combineStream();
+	Stream<T> subStreamBySkip();
+
+	Stream<T> subStreamByFilteringInByCondition();
+
+	Stream<T> subStreamByFilteringOutByCondition();
+
+	Stream<T> combineStreamByConcatination();
 
 	Stream<T> removeDuplicate();
 

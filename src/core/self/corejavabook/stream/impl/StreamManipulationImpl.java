@@ -48,13 +48,10 @@ public class StreamManipulationImpl implements StreamManipulation {
 	public Stream transformStreamByFlatMap() {
 		// By Map
 		Stream.of("Nguyen", "Van", "Khoi").map(s -> s+"-f").forEach(s -> System.out.println(s));
-
 		// stream of stream
 		Stream.of("Nguyen", "Van", "Khoi").map(s -> codePoints(s)).forEach(s -> s.forEach(value -> System.out.println(value) ));
-
 		// stream of stream be replaced by flatmap
-		Stream.of("Nguyen", "Van", "Khoi").flatMap(s -> codePoints(s)).forEach(s -> System.out.println(s));
-
+		Stream.of("Nguyen", "Van", "Khoi").flatMap(s -> codePoints(s)).forEach(s -> System.out.println(s + "-f"));
 		return null;
 	}
 
@@ -70,12 +67,28 @@ public class StreamManipulationImpl implements StreamManipulation {
 	}
 
 	@Override
-	public Stream subStream() {
+	public Stream subStreamByLimit() {
+
 		return null;
 	}
 
 	@Override
-	public Stream combineStream() {
+	public Stream subStreamBySkip() {
+		return null;
+	}
+
+	@Override
+	public Stream subStreamByFilteringInByCondition() {
+		return null;
+	}
+
+	@Override
+	public Stream subStreamByFilteringOutByCondition() {
+		return null;
+	}
+
+	@Override
+	public Stream combineStreamByConcatination() {
 		return null;
 	}
 
