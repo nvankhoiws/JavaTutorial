@@ -1,11 +1,13 @@
 package core.self.corejavabook.stream.impl;
 
+import com.google.gson.internal.Streams;
 import core.self.corejavabook.stream.StreamManipulation;
 
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Stream;
+import java.util.stream.StreamSupport;
 
 /**
  * Created by KhoiNV6@vttek.vn on 2/12/19
@@ -16,8 +18,11 @@ public class StreamManipulationImpl implements StreamManipulation {
 		StreamManipulation streamManipulation = new StreamManipulationImpl();
 //		streamManipulation.filterStream();
 //		streamManipulation.transformStreamByMap();
-		streamManipulation.transformStreamByFlatMap();
-//		streamManipulation.subStream();
+//		streamManipulation.transformStreamByFlatMap();
+//		streamManipulation.subStreamByLimit();
+//		streamManipulation.subStreamBySkip();
+		streamManipulation.subStreamByFilteringInByCondition();
+
 //		streamManipulation.combineStream();
 //		streamManipulation.removeDuplicate();
 //		streamManipulation.sortingStream();
@@ -51,7 +56,7 @@ public class StreamManipulationImpl implements StreamManipulation {
 		// stream of stream
 		Stream.of("Nguyen", "Van", "Khoi").map(s -> codePoints(s)).forEach(s -> s.forEach(value -> System.out.println(value) ));
 		// stream of stream be replaced by flatmap
-		Stream.of("Nguyen", "Van", "Khoi").flatMap(s -> codePoints(s)).forEach(s -> System.out.println(s + "-f"));
+		Stream.of("Nguyen", "Van", "Khoi").flatMap(s -> codePoints(s).map(s1 -> s1+"-f1")).forEach(s -> System.out.println(s + "-f2"));
 		return null;
 	}
 
@@ -68,17 +73,41 @@ public class StreamManipulationImpl implements StreamManipulation {
 
 	@Override
 	public Stream subStreamByLimit() {
-
+		Stream.generate(() -> Math.random())
+				.limit(10)
+				.forEach(aDouble -> System.out.println(aDouble));
 		return null;
 	}
 
 	@Override
 	public Stream subStreamBySkip() {
+//		int[] indices = new int[1];
+		Stream.generate(() -> Math.random())
+				.limit(10)
+				.skip(5)
+				.forEach(aDouble -> System.out.println(aDouble));
 		return null;
 	}
 
 	@Override
 	public Stream subStreamByFilteringInByCondition() {
+//		Stream.of("123", "1234", "12345", "123456", "1234567", "12345678", "123456789")
+//				.filter(s -> s.length() >= 5)
+//				.forEach(s -> System.out.println(s));
+
+//		Stream.of("123", "1234", "12345", "123456", "1234567", "12345678", "123456789")
+//				.takeWhile(s -> s.length() >= 5)
+//				.forEach(s -> System.out.println(s));
+		codePoints("khoi")
+				.takeWhile(s -> {
+					System.out.println(s);
+					return "0123456789".contains(s);
+				})
+				.forEach(s -> System.out.println(s));
+
+//		Stream.of("123", "1234", "12345", "123456", "1234567", "12345678", "123456789")
+//				.dropWhile(s -> s.length() < 5)
+//				.forEach(s -> System.out.println(s));
 		return null;
 	}
 

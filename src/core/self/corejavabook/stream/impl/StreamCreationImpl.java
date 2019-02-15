@@ -51,7 +51,7 @@ public class StreamCreationImpl implements StreamCreation {
 
 	@Override
 	public Stream createStreamFromFiniteIteration() {
-		// To stream tu array
+		// To STREAM tu array
 		Stream.of("Nguyen", "Van", "Khoi")
 				.forEach(s -> System.out.println(s));
 		return null;
