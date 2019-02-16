@@ -91,23 +91,16 @@ public class StreamManipulationImpl implements StreamManipulation {
 
 	@Override
 	public Stream subStreamByFilteringInByCondition() {
-//		Stream.of("123", "1234", "12345", "123456", "1234567", "12345678", "123456789")
-//				.filter(s -> s.length() >= 5)
-//				.forEach(s -> System.out.println(s));
-
-//		Stream.of("123", "1234", "12345", "123456", "1234567", "12345678", "123456789")
-//				.takeWhile(s -> s.length() >= 5)
-//				.forEach(s -> System.out.println(s));
-		codePoints("khoi")
-				.takeWhile(s -> {
-					System.out.println(s);
-					return "0123456789".contains(s);
-				})
+		// example 1
+		Stream.iterate("", s -> s + "s")
+				.takeWhile(s -> s.length() < 10)
 				.forEach(s -> System.out.println(s));
 
-//		Stream.of("123", "1234", "12345", "123456", "1234567", "12345678", "123456789")
-//				.dropWhile(s -> s.length() < 5)
-//				.forEach(s -> System.out.println(s));
+		// example 2
+		Stream.iterate("", s -> (s.length() % 2) != 0
+									? (100 - s.length()) s + "s")
+				.takeWhile(s -> s.length() == 100)
+				.forEach(s -> System.out.println(s));
 		return null;
 	}
 
