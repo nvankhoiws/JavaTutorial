@@ -4,6 +4,7 @@ import java.util.stream.Stream;
 
 /**
  * Created by KhoiNV6@vttek.vn on 2/12/19
+ * Terminating a stream is also called reduction
  **/
 public interface ResultManipulation<T> {
 

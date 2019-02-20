@@ -1,13 +1,12 @@
 package core.self.corejavabook.stream.impl;
 
-import com.google.gson.internal.Streams;
 import core.self.corejavabook.stream.StreamManipulation;
 
 import java.math.BigInteger;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Stream;
-import java.util.stream.StreamSupport;
 
 /**
  * Created by KhoiNV6@vttek.vn on 2/12/19
@@ -21,12 +20,12 @@ public class StreamManipulationImpl implements StreamManipulation {
 //		streamManipulation.transformStreamByFlatMap();
 //		streamManipulation.subStreamByLimit();
 //		streamManipulation.subStreamBySkip();
-		streamManipulation.subStreamByFilteringInByCondition();
-
-//		streamManipulation.combineStream();
+//		streamManipulation.subStreamByFilteringInByCondition();
+//		streamManipulation.subStreamByFilteringOutByCondition();
+//		streamManipulation.combineStreamByConcatination();
 //		streamManipulation.removeDuplicate();
 //		streamManipulation.sortingStream();
-//		streamManipulation.peekStream();
+		streamManipulation.peekStream();
 	}
 	@Override
 	public Stream filterStream() {
@@ -96,36 +95,59 @@ public class StreamManipulationImpl implements StreamManipulation {
 				.takeWhile(s -> s.length() < 10)
 				.forEach(s -> System.out.println(s));
 
-		// example 2
-		Stream.iterate("", s -> (s.length() % 2) != 0
-									? (100 - s.length()) s + "s")
-				.takeWhile(s -> s.length() == 100)
-				.forEach(s -> System.out.println(s));
+		// example 2, can see method subStreamByFilteringOutByCondition to has opposite view to deeper understand this example
+		Stream.of(2, 4, 6, 8, 9, 10, 12)
+				.takeWhile(n -> n % 2 == 0)
+				.forEach(System.out::println);
+
 		return null;
 	}
 
 	@Override
 	public Stream subStreamByFilteringOutByCondition() {
+		Stream.of(2, 4, 6, 8, 9, 10, 12)
+				.dropWhile(n -> n % 2 == 0)
+				.forEach(System.out::println);
 		return null;
 	}
 
 	@Override
 	public Stream combineStreamByConcatination() {
+		Stream.concat(Stream.of(2, 4, 6, 8, 9, 10, 12)
+				.takeWhile(n -> n % 2 == 0),
+				Stream.of(2, 4, 6, 8, 9, 10, 12)
+						.dropWhile(n -> n % 2 == 0))
+				.forEach(System.out::println);
 		return null;
 	}
 
 	@Override
 	public Stream removeDuplicate() {
+		Stream.of("merrily", "gently", "merrily").distinct().forEach(System.out::println);
 		return null;
 	}
 
 	@Override
 	public Stream sortingStream() {
+		Stream.of("merrily", "gently", "kjhkhkhkjhkjhkhk").sorted(Comparator.comparing(String::length)).forEach(System.out::println);
+
+		Stream.of(2, 4, 6, 8, 9, 10, 12).sorted(Comparator.comparing(Integer::intValue).reversed()).forEach(System.out::println);
 		return null;
 	}
 
 	@Override
 	public Stream peekStream() {
+		// Call other stream
+		Stream.iterate(1.0, p -> p * 2)
+			.peek(e -> System.out.println("Fetching " + e))
+			.limit(10).toArray();
+
+		// For debugging
+		Stream.iterate(1.0, p -> p * 2)
+			.peek(e -> {
+				return;})
+			.limit(10).toArray();
+
 		return null;
 	}
 }
