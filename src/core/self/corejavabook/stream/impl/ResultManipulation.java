@@ -6,7 +6,7 @@ package core.self.corejavabook.stream.impl;
 public class ResultManipulation implements core.self.corejavabook.stream.ResultManipulation {
 
 	public static void main(String[] args) {
-		ResultManipulation
+//		ResultManipulation
 	}
 
 	@Override
