@@ -12,10 +12,10 @@ public class StreamCreationImpl implements StreamCreation {
 	public static void main(String[] args) {
 		StreamCreation streamCreation = new StreamCreationImpl();
 //		streamCreation.createStreamFromEmpty();
-		streamCreation.createStreamFromConstant();
+//		streamCreation.createStreamFromConstant();
 //		streamCreation.createStreamFromRandom();
 //		streamCreation.createStreamFromInfiniteIteration();
-//		streamCreation.createStreamFromFiniteIteration();
+		streamCreation.createStreamFromFiniteIteration();
 	}
 
 	@Override
@@ -52,8 +52,17 @@ public class StreamCreationImpl implements StreamCreation {
 	@Override
 	public Stream createStreamFromFiniteIteration() {
 		// To STREAM tu array
+		//  example 1
 		Stream.of("Nguyen", "Van", "Khoi")
 				.forEach(s -> System.out.println(s));
+
+		//  example 2
+		String[] k = new String[3];
+		k[0] = "nguyen";
+		k[1] = "van";
+		k[2] = "khoi";
+
+		Stream.of(k).forEach(System.out::println);
 		return null;
 	}
 }
